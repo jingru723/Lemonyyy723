@@ -1,0 +1,60 @@
+###hw02
+def num_eights(x):
+    """Returns the number of times 8 appears as a digit of x.
+
+    >>> num_eights(3)
+    0
+    >>> num_eights(8)
+    1
+    >>> num_eights(88888888)
+    8
+    >>> num_eights(2638)
+    1
+    >>> num_eights(86380)
+    2
+    >>> num_eights(12345)
+    0
+    >>> from construct_check import check
+    >>> # ban all assignment statements
+    >>> check(HW_SOURCE_FILE, 'num_eights',
+    ...       ['Assign', 'AugAssign'])
+    True
+    """
+    "*** YOUR CODE HERE ***"
+    ans = 0
+    while x%10 > 0:
+        if x % 10 == 8:
+            x //= 10
+            ans += 1
+        else:
+            x //= 10
+    return ans
+
+def num_eights(x):
+    """Returns the number of times 8 appears as a digit of x.
+
+    >>> num_eights(3)
+    0
+    >>> num_eights(8)
+    1
+    >>> num_eights(88888888)
+    8
+    >>> num_eights(2638)
+    1
+    >>> num_eights(86380)
+    2
+    >>> num_eights(12345)
+    0
+    >>> from construct_check import check
+    >>> # ban all assignment statements
+    >>> check(HW_SOURCE_FILE, 'num_eights',
+    ...       ['Assign', 'AugAssign'])
+    True
+    """
+    "*** YOUR CODE HERE ***"
+    if x % 10 == 8:
+        return 1 + num_eights(x//10)
+    elif x < 10:
+        return 0
+    else:
+        return num_eights(x // 10)
